@@ -3,7 +3,7 @@
 		<h2>
 			{{ !props.isTotal ? "Group " + props.name : props.name }}
 		</h2>
-		<div class="grid flex-1 grid-cols-3 gap-2 place-items-center">
+		<div class="grid flex-1 grid-cols-3 gap-2 text-center place-items-center">
 			<template v-if="!props.isTotal">
 				<InputTestResult
 					v-for="classification in [
