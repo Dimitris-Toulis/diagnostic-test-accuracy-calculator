@@ -1,6 +1,6 @@
 <template>
 	<main class="flex flex-col p-3">
-		<div class="grid gap-5 dataInputs">
+		<div class="grid gap-5 dataInputs justify-center groups">
 			<section v-for="(group, i) in groups">
 				<GroupData
 					:name="group[0]"
@@ -61,8 +61,10 @@ const total = computed(() => ({
 }));
 </script>
 <style scoped>
-.dataInputs {
-	grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
-	justify-content: center;
+.groups {
+	grid-template-columns: repeat(
+		auto-fit,
+		minmax(min(400px, 90vw), max-content)
+	);
 }
 </style>
