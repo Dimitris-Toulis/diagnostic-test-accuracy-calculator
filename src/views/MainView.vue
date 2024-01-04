@@ -1,9 +1,9 @@
 <template>
 	<main class="flex flex-col p-3">
 		<div class="grid gap-5 dataInputs justify-center groups">
-			<section v-for="(group, i) in groups">
+			<section v-for="([name, _], i) in groups">
 				<GroupData
-					:name="group[0]"
+					:name="name"
 					v-model="data[i]"
 					:total="total.size"
 					:isTotal="false"
@@ -12,15 +12,15 @@
 		</div>
 		<div class="flex flex-row my-4 children:h-5 h-5">
 			<div
-				v-for="(group, i) in groups"
+				v-for="([name, color], i) in groups"
 				class="flex place-items-center justify-center text-white"
 				:class="{ '!hidden': sizes[i] == 0 }"
 				:style="{
 					flex: (sizes[i] / total.size) * 100,
-					backgroundColor: group[1],
+					backgroundColor: color,
 				}"
 			>
-				<span>{{ group[0] }}</span>
+				<span>{{ name }}</span>
 			</div>
 		</div>
 		<section>
