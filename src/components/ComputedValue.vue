@@ -1,6 +1,6 @@
 <template>
 	<p>{{ props.name }}:</p>
-	<p v-if="percent">{{ props.val }}</p>
+	<p v-if="percent" class="break-all">{{ props.val }}</p>
 	<p :class="{ 'col-span-2': !percent }">
 		{{
 			props.to != 0

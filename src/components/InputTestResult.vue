@@ -1,7 +1,7 @@
 <template>
 	<label :for="props.name"> {{ props.fullName }}:</label>
 	<InputNumber v-model="model" :id="props.name" :min="0" />
-	<p>
+	<p class="break-all">
 		{{
 			total != 0
 				? +((model / total + Number.EPSILON) * 100).toFixed(2) + "%"
