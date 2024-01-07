@@ -13,7 +13,6 @@
 	},
 	"dependencies": {
 		"@unocss/reset": "^0.58.2",
-		"primevue": "^3.45.0",
 		"vue": "^3.3.11",
 		"vue-router": "^4.2.5"
 	},
