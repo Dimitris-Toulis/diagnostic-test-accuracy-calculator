@@ -9,10 +9,15 @@
 </template>
 <script setup lang="ts">
 import { ref, watch } from "vue";
-const model = defineModel<number>();
+
+const props = defineProps<{ modelValue: number }>();
+const emit = defineEmits<{ "update:modelValue": [value: number] }>();
 
 const value = ref<number | "">("");
-watch(value, (val) => (model.value = val || 0));
+watch(
+	() => props.modelValue,
+	() => (value.value = props.modelValue || "")
+);
 
 function numberBeforeInput(e: InputEvent) {
 	if (e.data?.length === 1 && /\D/.test(e.data)) {
@@ -24,6 +29,7 @@ function numberInput(e: InputEvent) {
 	if (elem.value.startsWith("0")) {
 		elem.value = parseInt(elem.value).toString();
 	}
+	emit("update:modelValue", parseInt(elem.value) || 0);
 }
 </script>
 <style scoped>
